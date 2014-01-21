@@ -1,5 +1,6 @@
 //----------------------------------------------------------------------------
-//  Copyright (C) 2004-2013 by EMGU. All rights reserved.       
+//  Copyright (C) 2014 by Richard Lee. All rights reserved.
+//  http://richardxlee.com
 //----------------------------------------------------------------------------
 
 using System.Reflection;
@@ -9,8 +10,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CameraCapture")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("RileeCapture")]
+[assembly: AssemblyDescription("EmguCV - Object Recognition")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
