@@ -98,8 +98,8 @@ namespace RileeCapture
                 long matchTime = 0;
                 if (!btnDrawMasterImage.Enabled){
                     frame = SURFMatch.Draw(_limgCroppedMaster, frame, out matchTime);
+                    tslStatus.Text = _limgCroppedMaster.Count + ((_limgCroppedMaster.Count > 1) ? " objects" : " object") + " detected in " + matchTime + " milliseconds";
                 }
-                tslStatus.Text = _limgCroppedMaster.Count + ((_limgCroppedMaster.Count > 1) ? " objects" : " object") + " detected in " + matchTime + " milliseconds";
             }
             #endregion
 
@@ -130,12 +130,10 @@ namespace RileeCapture
         private void resetCameraCapture()
         {
             //quick reset
-            tslStatus.Text = "resetting Emgu from previous recognitions...";
             _capture.Stop();
-            Thread.Sleep(500);
+            Thread.Sleep(100);
             _limgCroppedMaster.Clear();
             clearAllRecognitionBoxes();
-            Thread.Sleep(50);
             _capture.Start();
             //clear recognition boxes and update status
             tslStatus.Text = "Capture started";
@@ -158,6 +156,7 @@ namespace RileeCapture
             if (chbFaceDetection.Checked)
                 this.chbObjectRecognition.Checked = false;
             else{
+                tslStatus.Text = "resetting Emgu from previous recognitions...";
                 resetCameraCapture();
             }
         }
@@ -171,6 +170,7 @@ namespace RileeCapture
                 this.btnDrawMasterImage.Text = "Finished Drawing";
             }
             else{
+                tslStatus.Text = "resetting Emgu from previous recognitions...";
                 resetCameraCapture();
             }
         }
